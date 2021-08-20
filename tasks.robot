@@ -19,16 +19,17 @@ Library           RPA.Robocloud.Secrets
 *** Keywords ***
 Get and Log the Vault Secret Values
     ${secret}=    Get Secret    credentials
-    # Note: in real robots, you should not print secrets to the log. this is just for demonstration purposes :)
-    Log    ${secret}[username]
-    Log    ${secret}[password]
-    # Add icon      Success
-    # Add heading   Your username is ${secret}[username] and password is ${secret}[password]
-    # Run dialog    title=Success
+    Add icon      Success
+    Add heading   Your username is ${secret}[username] and password is ${secret}[password]. Note: in real robots, you should NOT keep secrets in your project file. This is just for demonstration purposes :)
+    Run dialog    title=Success
 
 *** Keywords ***
 Get Order.csv URL
-    Add text input    orderurl     What is the URL of the Orders csv?
+    # Add text input    orderurl     What is the URL of the Orders csv?  placeholder=https://robotsparebinindustries.com/orders.csv
+    Add text input    orderurl
+    ...    label=What is the URL of the Orders csv?
+    ...    placeholder=https://robotsparebinindustries.com/orders.csv
+    Add text    Type in https://robotsparebinindustries.com/orders.csv
     ${response}=    Run dialog
     [Return]    ${response.orderurl}
 

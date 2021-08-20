@@ -1,0 +1,9 @@
+{
+  "credentials": {
+    "username": "blarg",
+    "password": "blargpwd"
+  },
+  "ordersurl": {
+    "url": "https: //robotsparebinindustries.com/orders.csv"
+  }
+}
